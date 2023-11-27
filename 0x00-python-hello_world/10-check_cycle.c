@@ -1,11 +1,11 @@
 #include "lists.h"
-#include <stdbool.h>
 
 /**
  * check_cycle - checks if a singly linked list has a cycle in it.
  * @list: list
  * Return: 0 if no cycle, 1 if there is.
- */ 
+ */
+
 int check_cycle(listint_t *list)
 {
 	listint_t *tortoise = list;
