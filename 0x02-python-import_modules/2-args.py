@@ -12,7 +12,7 @@ def print_arguments():
     else:
         print(f"{num_arguments} arguments:")
     for i in range(1, num_arguments + 1):
-        print(f"{i} {sys.argv[i]}")
+        print(f"{i}: {sys.argv[i]}")
 
 
 if __name__ == "__main__":
