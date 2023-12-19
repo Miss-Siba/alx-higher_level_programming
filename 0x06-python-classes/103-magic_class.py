@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Define a MagicClass matching exactly a bytecode provided by ALX."""
+
 import math
 
 
@@ -10,10 +12,6 @@ class MagicClass:
 
         Args:
             radius (int or float): The radius of the magic circle.
-                Defaults to 0.
-
-        Raises:
-            TypeError: If radius is not a number (int or float).
         """
         self.__radius = 0
         if type(radius) is not int and type(radius) is not float:
@@ -21,9 +19,7 @@ class MagicClass:
         self.__radius = radius
 
     def area(self):
-        """Calculate and return the area of the magic circle.
-
-        Returns:
+        """Returns:
             float: The area of the magic circle.
         """
         return (self.__radius ** 2 * math.pi)
