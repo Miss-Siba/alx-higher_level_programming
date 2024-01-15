@@ -3,33 +3,30 @@
 from models.base import Base
 
 
-class Base:
-    """Defines base class. """
-    __nb_objects = 0
-
-    def __init__(self, id=None):
-        """ Constructs a class."""
-        if id is not None:
-            self.id = id
-        else:
-            Base.__nb_objects += 1
-            self.id = Base.__nb_objects
-
-
 class Rectangle(Base):
-    """Defines a Rectangle class inherited from Base.
-    Args:
-        width (int): width of the new rectangle.
-        height (int): height of the new rectangle.
-        y (int): Y coordinate of the new rectangle.
-        x (int): x coordinate of the new rectangle.
-    Raises:
-        TypeError: height or width  must be an integer.
-        ValueError: height or width must be > 0
-        ValueError: height or width  must be >= 0
-    """
+    """Defines a Rectangle class inherited from Base."""
+
+    def __init__(self, width, height, x=0, y=0, id=None):
+        """Initialize a new Rectangle.
+        Args:
+            width (int): width of the new rectangle.
+            height (int): height of the new rectangle.
+            y (int): Y coordinate of the new rectangle.
+            x (int): x coordinate of the new rectangle.
+        Raises:
+            TypeError: height or width  must be an integer.
+            ValueError: height or width must be > 0
+            ValueError: height or width  must be >= 0
+        """
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
+        super().__init__(id)
+
     @property
     def width(self):
+        """Set/get the width of the Rectangle."""
         return self.__width
 
     @width.setter
@@ -42,6 +39,7 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """Set/get the height of the Rectangle."""
         return self.__height
 
     @height.setter
@@ -77,20 +75,6 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
-
-    def __init__(self, width, height, x=0, y=0, id=None):
-        """Constructs a Rectangle class. """
-        super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
-
-    def __str__(self):
-        """Returns the string representation of the Rectangle instance."""
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(
-            self.id, self.__x, self.__y, self.__width, self.__height
-        )
 
     def area(self):
         """ Calculates the area of the rectangle. """
