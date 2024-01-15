@@ -5,6 +5,7 @@ from models.rectangle import Rectangle
 
 class Square(Rectangle):
     """ Represents asquare."""
+
     def __init__(self, size, x=0, y=0, id=None):
         """Initializes a new square
         Args:
