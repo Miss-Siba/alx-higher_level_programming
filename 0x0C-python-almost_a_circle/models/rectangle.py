@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Defines a class."""
+from models.base import Base
 
 
 class Base:
