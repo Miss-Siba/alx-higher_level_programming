@@ -5,17 +5,18 @@
 class Square(Rectangle):
     """ Represents asquare."""
     def __init__(self, size, x=0, y=0, id=None):
-    """Initializes a new square
-    Args:
-        size (int): The size of the new Square.
-        x (int): The x coordinate of the new Square.
-        y (int): The y coordinate of the new Square.
-        id (int): The identity of the new Square.
-    """
-    super().__init__(size, size, x, y, id)
+        """Initializes a new square
+        Args:
+            size (int): The size of the new Square.
+            x (int): The x coordinate of the new Square.
+            y (int): The y coordinate of the new Square.
+            id (int): The identity of the new Square.
+        """
+        super().__init__(size, size, x, y, id)
 
     @property
-    """Get/set the size of the Square."""
+    def size(self):
+        """Get/set the size of the Square."""
         return self.width
 
     @size.setter

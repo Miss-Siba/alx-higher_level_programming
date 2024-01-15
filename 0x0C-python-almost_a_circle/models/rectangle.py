@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bn/python3
 """Defines a class."""
 
 
@@ -13,6 +13,7 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
 
 class Rectangle(Base):
     """Defines a Rectangle class inherited from Base.
@@ -93,7 +94,7 @@ class Rectangle(Base):
     def area(self):
         """ Calculates the area of the rectangle. """
         return self.__height * self.__width
-    
+
     def display(self):
         """ Prints a rectangle using '#'."""
         if self.width == 0 or self.height == 0:
@@ -164,6 +165,5 @@ class Rectangle(Base):
 
     def __str__(self):
         """Return the print() and str() representation of the Rectangle."""
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
-                                                       self.x, self.y,
-                                                       self.width, self.height)
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+                self.id, self.x, self.y, self.width, self.height)
