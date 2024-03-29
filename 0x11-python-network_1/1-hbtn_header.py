@@ -4,19 +4,20 @@ import urllib.request
 import sys
 
 
-url = sys.argv[1]
+def get_x_request_id(url):
+    with urllib.request.urlopen(url) as response:
+        headers = response.info()
+        request_id = headers.get('X-Request-Id')
+        return request_id if request_id else None
 
-req = urllib.request.Request(url)
-try:
-    with urllib.request.urlopen(req) as response:
-        request_id = response.headers.get('X-Request-Id')
-        if request_id:
-            print(request_id)
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: python get_request_id.py <URL>")
+    else:
+        url = sys.argv[1]
+        x_request_id = get_x_request_id(url)
+        if x_request_id:
+            print(x_request_id)
         else:
             print("X-Request-Id header not found in the response.")
-except urllib.error.HTTPError as e:
-    print(f"HTTPError: {e.code} - {e.reason}")
-except urllib.error.URLError as e:
-    print(f"URLError: {e.reason}")
-except Exception as e:
-    print(f"An error occurred: {e}")
