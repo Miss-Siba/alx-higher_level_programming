@@ -5,6 +5,7 @@ Script to fetch status from a specified URL using the requests module.
 
 import requests
 
+
 def fetch_status(url):
     """
     Fetches the status from the specified URL using requests.
@@ -13,7 +14,8 @@ def fetch_status(url):
     - url (str): The URL to fetch the status from.
 
     Returns:
-    - str: The status text if the request is successful, otherwise an error message.
+    - str: The status text if the request is successful, otherwise
+    an error message.
     """
     try:
         response = requests.get(url)
@@ -21,6 +23,7 @@ def fetch_status(url):
         return response.text
     except requests.exceptions.HTTPError as e:
         return f"Error fetching URL: {e}"
+
 
 if __name__ == "__main__":
     # Define the URLs to fetch status from
