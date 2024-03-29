@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 """Script to take in an URL , send request and decode. """
 
-
-import urllib.request
-import urllib.error
+import urllib
 import sys
 
 
