@@ -5,6 +5,7 @@ import sys
 
 
 def get_x_request_id(url):
+    """ Gets and displays x_request_id """
     with urllib.request.urlopen(url) as response:
         headers = response.info()
         request_id = headers.get('X-Request-Id')
