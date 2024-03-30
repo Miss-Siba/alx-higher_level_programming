@@ -19,18 +19,21 @@ def fetch_status(url):
     """
     try:
         response = requests.get(url)
-        response.raise_for_status()  # Raise an exception for HTTP errors
-        return response.text
-    except requests.exceptions.HTTPError as e:
+        response.raise_for_status()
+        formatted_output = f"Body response:\n" \
+                           f"    - type: {type(response.text)}\n" \
+                           f"    - content: {response.text}\n"
+        return formatted_output
+    except requests.exceptions.HTTPError as he:
+        return f"HTTP error: {he}"
+    except requests.exceptions.RequestException as e:
         return f"Error fetching URL: {e}"
 
 
 if __name__ == "__main__":
-    # Define the URLs to fetch status from
     url1 = 'https://alx-intranet.hbtn.io/status'
     url2 = 'http://0.0.0.0:5050/status'
 
-    # Fetch status from each URL and display the output
     print("Fetching status from", url1)
     print(fetch_status(url1))
 
