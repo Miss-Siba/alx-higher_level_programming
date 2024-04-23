@@ -1,3 +1,4 @@
+#!/usr/bin/node
 const request = require('request');
 // Import the 'request' module.
 
@@ -10,4 +11,3 @@ request.get(process.argv[2])
     console.log(`code: ${response.statusCode}`);
     // Log the HTTP status code of the response to the console.
   });
-
